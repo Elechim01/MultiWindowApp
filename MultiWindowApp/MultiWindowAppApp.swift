@@ -13,5 +13,14 @@ struct MultiWindowAppApp: App {
         WindowGroup {
             ContentView()
         }
+        .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
+        
+//        MARK: Multi-Tab Window Group
+        WindowGroup(id: "New Tab", for: Tab.self) { $tab in
+            NewTabView(tab: tab,isRootView: false)
+        }
+        .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
     }
 }
